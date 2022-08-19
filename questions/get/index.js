@@ -49,7 +49,7 @@ exports.handler = vandium.generic()
     if(tags != ''){
        sql += " AND id IN(SELECT question_id FROM questions_tags WHERE tag_id IN(SELECT id FROM tags WHERE name IN ('" + tags.replace(",","','") + "')))";
     }     
-    sql += " ORDER BY Level";
+    sql += " ORDER BY name";
     sql += " LIMIT " + event.page + "," + event.limit;
     connection.query(sql, function (error, results, fields) {
 
