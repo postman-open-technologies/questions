@@ -22,7 +22,7 @@ jobs:
           CI: true
           
       - name: /questions get lambda deploy zip
-        uses: postman-open-technologies/question@main
+        uses: postman-open-technologies/questions@main
         with:
             args: zip -qq -r m-s-questions-g.zip questions/get/index.js node_modules
       - name: question get lambda deploy
@@ -34,7 +34,7 @@ jobs:
             function_name: m-s-questions-g
             zip_file: m-s-questions-g.zip
       - name: /questions post lambda deploy zip
-        uses: postman-open-technologies/question@main
+        uses: postman-open-technologies/questions@main
         with:
             args: zip -qq -r m-s-questions-po.zip questions/post/index.js node_modules
       - name: question get lambda deploy
@@ -46,7 +46,7 @@ jobs:
             function_name: m-s-questions-po
             zip_file: m-s-questions-po.zip
       - name: /questions/{question_id} get lambda deploy zip
-        uses: postman-open-technologies/question@main
+        uses: postman-open-technologies/questions@main
         with:
             args: zip -qq -r m-s-questions-question-g.zip questions/question_id/get/index.js node_modules
       - name: question get lambda deploy
@@ -58,7 +58,7 @@ jobs:
             function_name: m-s-questions-question-g
             zip_file: m-s-questions-question-g.zip
       - name: /questions/{question_id} put lambda deploy zip
-        uses: postman-open-technologies/question@main
+        uses: postman-open-technologies/questions@main
         with:
             args: zip -qq -r m-s-questions-question-pu.zip questions/question_id/put/index.js node_modules
       - name: question get lambda deploy
@@ -70,7 +70,7 @@ jobs:
             function_name: m-s-questions-question-pu
             zip_file: m-s-questions-question-pu.zip
       - name: /questions/{question_id} delete lambda deploy zip
-        uses: postman-open-technologies/question@main
+        uses: postman-open-technologies/questions@main
         with:
             args: zip -qq -r m-s-questions-question-d.zip questions/question_id/delete/index.js node_modules
       - name: question get lambda deploy
