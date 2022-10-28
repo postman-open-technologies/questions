@@ -81,3 +81,39 @@ jobs:
             aws_region: us-west-1
             function_name: m-s-questions-question-d
             zip_file: m-s-questions-question-d.zip          
+      - name: /questions/{question_id}/tags get lambda deploy zip
+        uses: postman-open-technologies/questions@main
+        with:
+            args: zip -qq -r m-s-questions-question-tags-g.zip questions/question_id/tags/get/index.js node_modules
+      - name: questions get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+            aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+            aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+            aws_region: us-west-1
+            function_name: m-s-questions-question-tags-g
+            zip_file: m-s-questions-question-tags-g.zip
+      - name: /questions/{question_id}/tags post lambda deploy zip
+        uses: postman-open-technologies/questions@main
+        with:
+            args: zip -qq -r m-s-questions-question-tags-po.zip questions/question_id/tags/post/index.js node_modules
+      - name: questions get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+            aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+            aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+            aws_region: us-west-1
+            function_name: m-s-questions-question-tags-po
+            zip_file: m-s-questions-question-tags-po.zip
+      - name: /questions/{question_id}/tags/{tag_id} delete lambda deploy zip
+        uses: postman-open-technologies/questions@main
+        with:
+            args: zip -qq -r m-s-questions-question-tags-tag-d.zip questions/question_id/tags/tag_id/delete/index.js node_modules
+      - name: questions get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+            aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+            aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+            aws_region: us-west-1
+            function_name: m-s-questions-question-tags-tag-d
+            zip_file: m-s-questions-question-tags-tag-d.zip            
